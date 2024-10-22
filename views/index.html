@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js MVC Demo</title>
+    <script>
+        async function sendRequest(url, method = 'GET') {
+            const response = await fetch(url, { method: method });
+            const message = await response.text();
+            document.getElementById('response').textContent = message;
+        }
+    </script>
+</head>
+<body>
+<h1>Node.js med MVC-struktur</h1>
+
+<button onclick="sendRequest('/hello')">Sig hej</button>
+<button onclick="sendRequest('/data')">Hent data</button>
+<button onclick="sendRequest('/button-click', 'POST')">Klik på knappen</button>
+<button onclick="sendRequest('/read-file')">Læs fil</button>
+
+<p id="response"></p>
+</body>
+</html>
